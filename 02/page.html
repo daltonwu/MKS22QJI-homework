@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+canvas {
+	background-color: grey;
+}
+</style>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500"></canvas>
+<button onclick="start()">Start</button>
+<button onclick="stop()">STOPPPP</button>
+
+<script>
+var c = document.getElementById("canvas");
+var ctx = c.getContext("2d");
+var r = 0; // changing radius
+var MAX_R = 100; // max radius
+var INC = 2; // magnitude of increment
+var T = 16; // period between function calls [ms]
+var embiggening = true;
+var id = -1000;
+
+function start() {
+	console.log("LET THERE BE CIRCLES!");
+	id = setInterval(makeCircle, T);
+}
+
+function stop() {
+	if(id == -1000) {
+		alert("You have to start first!");
+	}
+	else if(id == -100) {
+		alert("Well, it started, but now you already stopped it!");
+	}
+	else {
+		clearInterval(id);
+		id = -100;
+		r = 0;
+		embiggening = true;
+	}
+}
+
+function makeCircle() {
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	ctx.beginPath();
+	ctx.fillStyle = embiggening ? "cyan" : "magenta";
+	ctx.arc(canvas.width/2, canvas.height/2, r, 0, 2*Math.PI);
+	ctx.fill();
+	embiggening = embiggening ? r < MAX_R : r <= 0;
+	if(embiggening) {
+		r += INC;
+	}
+	else {
+		r -= INC;
+	}
+	ctx.closePath();
+//	ctx.arc(canvas.width/2, canvas.height/2, r, 0, 2*Math.PI);
+//	ctx.fill();
+}
+</script>
+</body>
+</html>
