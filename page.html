@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<body>
+<canvas id="canvas" height="800" width="800" style="cursor: none;"></canvas>
+<button onclick="clearCanvas()">Clear!</button>
+<script>
+var c = document.getElementById("canvas");
+var ctx = c.getContext("2d");
+
+var x, y;
+
+ctx.fillStyle = "black";
+ctx.strokeStyle = "orange";
+
+/*c.addEventListener("mousemove", function() {
+	clearCanvas();
+	ctx.beginPath();
+	ctx.arc(event.clientX, event.clientY, 1, 0, 2*Math.PI);
+	ctx.stroke();
+	ctx.closePath();
+});*/
+
+c.addEventListener("click", function() {
+	if(x == undefined || y == undefined) {
+		ctx.beginPath();
+		x = event.clientX;
+		y = event.clientY;
+	}
+	else {
+		ctx.beginPath();
+		ctx.moveTo(x, y);
+		ctx.lineTo(event.clientX, event.clientY);
+		ctx.stroke();
+		ctx.closePath();
+		
+		ctx.beginPath();
+		ctx.arc(x, y, 10, 0, 2*Math.PI);
+		ctx.stroke();
+		ctx.fill();
+		ctx.closePath();
+		x = event.clientX;
+		y = event.clientY;
+	}
+	
+	ctx.beginPath();
+	ctx.arc(event.clientX, event.clientY, 10, 0, 2*Math.PI);
+	ctx.stroke();
+	ctx.fill();
+	ctx.closePath();
+});
+
+function clearCanvas() {
+	ctx.clearRect(0, 0, c.width, c.height);
+	first = true;
+}
+</script>
+</body>
+</html>
