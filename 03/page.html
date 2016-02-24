@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+	cursor: none;
+}
+</style>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500"></canvas>
+<button onclick="start()">Start</button>
+<button onclick="stop()">Stahp</button>
+<script>
+var c = document.getElementById("canvas");
+var ctx = c.getContext("2d");
+var go;
+var frameId = 0;
+var logo = new Image();
+var x = 0;
+var y = 0;
+logo.src = "https://upload.wikimedia.org/wikipedia/commons/9/9b/DVD_logo.svg";
+
+function start() {
+	if(frameId) {
+		alert("It's already going!");
+	}
+	else {
+		loop();
+		go = true;
+	}
+}
+
+function stop() {
+	if(go) {
+		go = false;
+		frameId = 0;
+	}
+	else {
+		alert("It's already stopped!");
+	}
+}
+
+function loop() {
+	if(!go) {
+		
+	}
+	ctx.beginPath();
+	ctx.clearRect(0, 0, c.width, c.height);
+	console.log("BAM!");
+	ctx.drawImage(logo, x, y);
+	frameId = window.requestAnimationFrame(loop);
+}
+</script>
+</body>
+</html>
