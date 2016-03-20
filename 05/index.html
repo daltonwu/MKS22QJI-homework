@@ -1,7 +1,32 @@
 <!doctype html>
 <html>
 <head>
+<meta charset="utf-8">
+<script src="d3.v3.min.js" charset="utf-8"></script>
+<title>Democratic Delegates 2016 Election</title>
+<style>
+#chart {
+  background-color: #ddd;
+  border: 1px solid black;
+}
+#chart div {
+  height: 20px;
+  padding: 20px;
+  border: 1px solid black;
+}
+</style>
 </head>
+
 <body>
+<h1>Democratic Delegates for the 2016 Presidential Election (2,295 total)</h1>
+<h2>Data from March 18, 2016</h2>
+<p><small>Note: weak blue color is the modern Democratic Party's official, weak blue color.</small></p>
+<p>Key:</p>
+<p style="color: rgb(71, 159, 223);">Delegates have been alotted</p>
+<p style="color: #777;">Delegates have not been alotted</p>
+<div id="chart">
+</div>
+<script src="democrats.js"></script>
+<script src="index.js"></script>
 </body>
 </html>
