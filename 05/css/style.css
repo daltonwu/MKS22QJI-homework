@@ -1,0 +1,21 @@
+.democratic {
+  background-color: #479fdf;
+  color: white;
+}
+.republican {
+  background-color: #f33;
+  color: white;
+}
+.unallotted {
+  background-color: #777;
+  color: white;
+}
+#chart {
+  background-color: #ddd;
+  border: 1px solid black;
+}
+#chart div {
+  height: 20px;
+  padding: 20px;
+  border: 1px solid black;
+}
