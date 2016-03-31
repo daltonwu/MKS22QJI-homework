@@ -22,5 +22,5 @@ def strength(p):
     level += 1 if has_digits(p)
     level += 1 if has_lowercase(p)
     level += 1 if has_uppercase(p)
-    level += len(p)
+    level += int(round(len(p) / 2))
     return level
