@@ -15,6 +15,7 @@ def main():
     print '>>> r2(2)'
     print r2(2)
     print '>>> repeat("cool")(3)'
+    print repeat("cool")(3)
 
 if __name__ == '__main__':
     main()
