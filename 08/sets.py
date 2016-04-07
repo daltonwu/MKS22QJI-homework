@@ -9,7 +9,7 @@ def union(a, b):
         if foo not in union:
             union.append(foo)
     return union'''
-    return a + [bar for bar in b if bar not in a]
+    return a + set_difference(b, a)
 
 def intersection(a, b):
     '''
