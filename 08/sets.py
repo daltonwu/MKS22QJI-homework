@@ -49,12 +49,16 @@ def cartesian_product(a, b):
 if __name__ == '__main__':
     a = [1, 2, 3]
     b = ['red', 'white', 3]
-    print 'a = ' + str(a)
-    print 'b = ' + str(b)
-    print 'union(a, b) = ' + str(union(a, b))
-    print 'intersection(a, b) = ' + str(intersection(a, b))
-    print 'set_difference(a, b) = ' + str(set_difference(a, b))
-    print 'set_difference(b, a) = ' + str(set_difference(b, a))
-    print 'symmetric_difference(a, b) = ' + str(symmetric_difference(a, b))
-    print 'symmetric_difference(b, a) = ' + str(symmetric_difference(b, a))
-    print 'cartesian_product(a, b) = ' + str(cartesian_product(a, b))
+    print 'a =', a
+    print 'b =', b
+    print
+    print 'union(a, b) =', union(a, b)
+    print 'intersection(a, b) =', intersection(a, b)
+    print
+    print 'set_difference(a, b) =', set_difference(a, b)
+    print 'set_difference(b, a) =', set_difference(b, a)
+    print
+    print 'symmetric_difference(a, b) =', symmetric_difference(a, b)
+    print 'symmetric_difference(b, a) =', symmetric_difference(b, a)
+    print
+    print 'cartesian_product(a, b) =', cartesian_product(a, b)
