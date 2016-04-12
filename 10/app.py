@@ -1,9 +1,29 @@
 from flask import Flask, render_template, request
 from utils import get_salary, get_name_and_rating, get_rating, get_secret_key, get_photo, get_efficiency
+import time
+
+def wrapper(f):
+    def inner(*arg):
+        print f.func_name + str(arg)
+        return f(*arg)
+    return inner
+
+def timer(f):
+    def inner(*arg):
+        t0 = time.time()
+        foo = f(*arg)
+        t1 = time.time()
+        print t1 - t0
+        return foo
+    return inner
 
 app = Flask(__name__)
 
+#@wrapper
+#@timer
 @app.route('/', methods=['GET', 'POST'])
+@wrapper
+@timer
 def index():
     if request.method == 'POST':
         salary_data = get_salary(
@@ -38,7 +58,7 @@ def index():
             subject = rating_data['subject']
             rating = rating_data['rating']
             num_ratings = rating_data['num_ratings']
-        photo = get_photo(full_name, request.form['school'])
+        #photo = get_photo(full_name, request.form['school'])
         efficiency = get_efficiency(salary, rating)
         return render_template(
             'results.html',
@@ -47,7 +67,7 @@ def index():
             salary = salary,
             rating = rating,
             num_ratings = num_ratings,
-            photo = photo,
+            photo = None, #photo,
             efficiency = efficiency
             )
     return render_template('index.html')
